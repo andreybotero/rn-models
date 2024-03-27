@@ -12,10 +12,12 @@ const styles = StyleSheet.create({
     backgroundColor: "#C9D4FF",
     borderRadius: 5,
   },
-  userInput: {
+  planetInput: {
     padding: 8,
     borderBottomColor: "black",
     borderBottomWidth: 1,
+    width: "23%",
+    marginBottom: 10,
   },
 });
 

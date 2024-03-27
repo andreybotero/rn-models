@@ -1,6 +1,16 @@
-export const user = {
-  id: 1513,
-  name: "Felipe Santos",
-  email: "felipesantos@dev.com",
-  age: 32,
+export const planet = {
+  planetName: "Tatooine",
+  conquestDate: "2021-07-18",
+  primaryColor: "blue",
+  secondaryColor: "orange",
+  population: "690000",
+  naturalResources: "minerals",
+  numSettlements: "15",
+  galaxy: "Andromeda",
+  solarSystem: "Via Láctea",
+  coordinates: "4,0,4",
+  transmissionFrequency: "6969",
+  communicationCode: "4046969",
+  planetRulerName: "Jabba",
+  planetRulerTitle: "Hutt",
 };

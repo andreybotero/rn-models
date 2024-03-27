@@ -5,12 +5,8 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     marginTop: 50,
-  },
-  button: {
-    marginTop: 20,
-    padding: 10,
-    backgroundColor: "#C9D4FF",
-    borderRadius: 5,
+    width: "100%",
+    height: "100%",
   },
 });
 
