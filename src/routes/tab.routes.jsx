@@ -4,7 +4,7 @@ import { Feather } from "@expo/vector-icons";
 import Home from "../screens/Home";
 import Profile from "../screens/Profile";
 import Form from "../screens/Form";
-import Planets from "../screens/Planets";
+import  Planet  from "../screens/Planet";
 import { planet } from "../data/Profile";
 
 const Tab = createBottomTabNavigator();
@@ -34,12 +34,12 @@ const TabRoutes = () => {
 
       <Tab.Screen
         name="Planetas"
-        component={Planets}
-        initialParams={{ planet }}
+        component={Planet}
+        initialParams={{ data: planet}}
         options={{
           tabBarIcon: ({ focused }) => (
             <Feather
-              name="circle"
+              name="globe"
               size={24}
               color={focused ? "#2D2E47" : "#2F6C82"}
             />
@@ -74,7 +74,7 @@ const TabRoutes = () => {
       <Tab.Screen
         name="Form"
         component={Form}
-        initialParams={{ planet: null, edit: false }}
+        initialParams={{ planet: planet, edit: false }}
         options={{
           tabBarIcon: ({ focused }) => (
             <Feather

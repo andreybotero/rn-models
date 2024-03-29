@@ -4,8 +4,9 @@ import { useNavigation } from "@react-navigation/native";
 import styles from "./styles";
 import Title from "../../components/Title";
 import Planets from "../../models/planets/Planets";
+import planetsRepository from "../../models/planets/PlanetsRepository";
 
-export default function Form(route) {
+export default function Form({ route }) {
   const { planet, edit } = route.params;
 
   const [planetName, setName] = useState("");
@@ -48,7 +49,25 @@ export default function Form(route) {
     }
   }, [planet, edit]);
 
-  const handleUSerAction = () => {
+  const ClearInputs = () => {
+    setIsUpdate(false);
+    setName("");
+    setConquestDate("");
+    setPrimaryColor("");
+    setSecondaryColor("");
+    setPopulation("");
+    setNaturalResources("");
+    setNumSettlements("");
+    setGalaxy("");
+    setSolarSystem("");
+    setCoordinates("");
+    setTransmissionFrequency("");
+    setCommunicationCode("");
+    setRulerName("");
+    setRulerTitle("");
+  };
+
+  const handleUserAction = () => {
     if (edit) {
       planetsRepository.update(
         planet.id,
@@ -65,7 +84,7 @@ export default function Form(route) {
         transmissionFrequency,
         communicationCode,
         planetRulerName,
-        planetRulerTitle,
+        planetRulerTitle
       );
       ClearInputs();
     } else {
@@ -83,31 +102,12 @@ export default function Form(route) {
         transmissionFrequency,
         communicationCode,
         planetRulerName,
-        planetRulerTitle,
+        planetRulerTitle
       );
       planetsRepository.add(newPlanet);
       ClearInputs();
     }
-    navigation.navigate("Planets");
-  };
-
-  const ClearInputs = () => {
-    setIsUpdate(false);
-    edit = false;
-    setPlanetName("");
-    setConquestDate("");
-    setPrimaryColor("");
-    setSecondaryColor("");
-    setPopulation("");
-    setNaturalResources("");
-    setNumSettlements("");
-    setGalaxy("");
-    setSolarSystem("");
-    setCoordinates("");
-    setTransmissionFrequency("");
-    setCommunicationCode("");
-    setPlanetRulerName("");
-    setPlanetRulerTitle("");
+    navigation.navigate("Planet");
   };
 
   return (
@@ -117,7 +117,7 @@ export default function Form(route) {
       <TextInput
         placeholder="Nome do Planeta"
         style={styles.planetInput}
-        onChangeText={setPlanetName}
+        onChangeText={setName}
         value={planetName}
       />
       <TextInput
@@ -191,17 +191,17 @@ export default function Form(route) {
       <TextInput
         placeholder="Governante do Planeta (Nome)"
         style={styles.planetInput}
-        onChangeText={setPlanetRulerName}
+        onChangeText={setRulerName}
         value={planetRulerName}
       />
       <TextInput
         placeholder="Governante do Planeta (Título)"
         style={styles.planetInput}
-        onChangeText={setPlanetRulerTitle}
+        onChangeText={setRulerTitle}
         value={planetRulerTitle}
       />
 
-      <TouchableOpacity onPress={handleUSerAction}>
+      <TouchableOpacity onPress={handleUserAction}>
         <Text>{IsUpdate ? "Salvar Alterações" : "Criar Planeta"}</Text>
       </TouchableOpacity>
 

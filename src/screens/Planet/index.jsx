@@ -6,7 +6,7 @@ import Title from "../../components/Title";
 // Import planet repository or any relevant code for managing planet data
 import planetsRepository from "../../models/planets/PlanetsRepository";
 
-export default function Planets() {
+export default function Planet() {
   const navigation = useNavigation();
   const isFocused = useIsFocused();
   const [allPlanets, setAllPlanets] = useState([]);
@@ -20,7 +20,7 @@ export default function Planets() {
 
   return (
     <View style={styles.container}>
-      <Title title="Planets" />
+      <Title title="Planet" />
       <Text>Tela de listagem de todos os planetas</Text>
 
       {allPlanets.length > 0 ? (
